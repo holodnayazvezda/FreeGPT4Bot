@@ -8,3 +8,4 @@ from utils.middleware import *
 from utils.recognizers import *
 from utils.text_workers import *
 from utils.users import *
+from utils.paths import *
