@@ -27,7 +27,7 @@ async def get_images_from_gigachats_answer(answer: str) -> tuple:
             'Accept': 'application/jpg',
             'Authorization': f'Bearer {access_token}'
         }
-        response = requests.request("GET", url, headers=headers, stream=True)
+        response = requests.request("GET", url, headers=headers, stream=True, verify=False)
         if response.status_code == 200:
             filepath = f"images/{name}.jpg"
             with open(filepath, "wb") as output:

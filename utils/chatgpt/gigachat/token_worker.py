@@ -1,6 +1,9 @@
+import requests.packages
 from data.config import GIGACHAT_CLIENT_SECRET
 
 import requests
+
+requests.packages.urllib3.disable_warnings()
 
 url = "https://ngw.devices.sberbank.ru:9443/api/v2/oauth"
 
@@ -14,7 +17,7 @@ headers = {
 
 
 async def get_access_token() -> tuple:
-    response = requests.request("POST", url, headers=headers, data=payload)
+    response = requests.request("POST", url, headers=headers, data=payload, verify=False)
     if response.status_code == 200:
         return 200, dict(response.json())['access_token']
     else:
