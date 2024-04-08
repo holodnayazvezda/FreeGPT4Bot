@@ -1,6 +1,6 @@
 from utils.async_process_runner import *
 from utils.get_button_list import *
-from utils.updater import *
+from utils.rebooter_and_updater import *
 from utils.chatgpt import *
 from utils.database import *
 from utils.filters import *
