@@ -14,7 +14,7 @@ from utils.database.folder_worker import get_dictionary
 from utils.filters.is_admin_filter import IsAdmin
 from utils.middleware.throttling_call_middleware import ThrottlingCallMiddleware
 from utils.middleware.throttling_message_middleware import ThrottlingMessageMiddleware
-from utils.updater import update_g4f_package
+from utils.rebooter_and_updater import update_g4f_package_and_make_daily_reboot
 from utils.users.users_registrator import register_user
 
 # создаем объект хранилища
@@ -68,7 +68,7 @@ async def main():
 
 if __name__ == "__main__":
     try:
-        Thread(target=update_g4f_package, args=(59,)).start()
+        Thread(target=update_g4f_package_and_make_daily_reboot, args=(59,)).start()
         asyncio.run(main())
     except KeyboardInterrupt:
         pass
